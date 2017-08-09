@@ -11,9 +11,10 @@ namespace Joshgame
         static Random random = new Random();
         static void Main(string[] args)
         {
-            int replay = 1;
-            while (replay > 0)
+            bool replay = true;
+            while (replay == true)
             {
+                Console.Clear();
                 Console.WriteLine("Welcome to Boop Woop, the reaction game! \nThe rules are simple:\nWhen you see the word Boop press the left key.\nWhen you see the word Woop press the right key.\nIf any other word appears press the down key.\nYou'll have 3 lives, so see how far you can go! \nWhen you are ready push the Enter key.");
                 do { }
                 while (Console.ReadKey(true).Key != ConsoleKey.Enter);
@@ -46,22 +47,22 @@ namespace Joshgame
                     Console.WriteLine("{0}oop", Ulet);
                     if (n <= 25)
                     {
-                        Thread.Sleep(1000);
+                        Thread.Sleep(800);
                         Console.Clear();
                     }
                     else if (n > 25 && n <= 50)
                     {
-                        Thread.Sleep(800);
+                        Thread.Sleep(600);
                         Console.Clear();
                     }
                     else if (n > 50 && n <= 75)
                     {
-                        Thread.Sleep(600);
+                        Thread.Sleep(400);
                         Console.Clear();
                     }
                     else if (n > 75)
                     {
-                        Thread.Sleep(400);
+                        Thread.Sleep(200);
                         Console.Clear();
                     }
                     if (Ulet == "B")
@@ -153,7 +154,7 @@ namespace Joshgame
                 }
                 if (Console.ReadKey(true).Key != ConsoleKey.Enter)
                 {
-                    replay = 0;
+                    replay = false;
                 }
             }
         }
