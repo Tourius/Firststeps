@@ -34,9 +34,9 @@ namespace Joshgame
             Console.Clear();
             int lives = 3;
             int n = 0;
-            while (lives > 0)
+            while (n <= 100)
             {
-                while (n++ <= 100)
+                do
                 {
                     Random rng = new Random();
                     int rand = rng.Next(0, 26);
@@ -88,8 +88,12 @@ namespace Joshgame
                         {
                             lives -= lives;
                         }
-                }
+
+                    n += n;
+                } while (lives < 0);
             }
         }
     }
 }
+
+
