@@ -15,7 +15,7 @@ namespace Joshgame
             while (replay == true)
             {
                 Console.Clear();
-                Console.WriteLine("Welcome to Boop Woop, the reaction game! \nThe rules are simple:\nWhen you see the word Boop press the left key.\nWhen you see the word Woop press the right key.\nIf any other word appears press the down key.\nYou'll have 3 lives, so see how far you can go! \nWhen you are ready push the Enter key.");
+                Console.WriteLine("Welcome to Boop Woop, the reaction game! \nThe rules are simple:\nWhen you see the word Boop press the left key.\nWhen you see the word Woop press the right key.\nIf any other word appears press the down key.\nYou'll have 3 lives, see if you can reach the 100th word! \nWhen you are ready push the Enter key.");
                 do { }
                 while (Console.ReadKey(true).Key != ConsoleKey.Enter);
                 { }
