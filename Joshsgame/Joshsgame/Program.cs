@@ -11,30 +11,31 @@ namespace Joshgame
         static Random random = new Random();
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Boop Woop, the reaction game! \nThe rules are simple:\nWhen you see the word Boop press the left key.\nWhen you see the word Woop press the right key.\nIf any other word appears press the down key.\nYou'll have 3 lives, so see how far you can go! \nWhen you are ready push the Enter key.");
-            do { }
-            while (Console.ReadKey(true).Key != ConsoleKey.Enter);
-            { }
-            Console.WriteLine("Here we go!");
-            Console.Clear();
-            Console.WriteLine("3...");
-            Thread.Sleep(500);
-            Console.WriteLine("2...");
-            Thread.Sleep(500);
-            Console.WriteLine("1...");
-            Thread.Sleep(500);
-            Console.WriteLine("GO!");
-            Thread.Sleep(500);
-            Console.Clear();
-            int lives = 3;
-            int n = 0;
-            while (n++ <= 100)
+            int replay = 1;
+            while (replay > 0)
             {
+                Console.WriteLine("Welcome to Boop Woop, the reaction game! \nThe rules are simple:\nWhen you see the word Boop press the left key.\nWhen you see the word Woop press the right key.\nIf any other word appears press the down key.\nYou'll have 3 lives, so see how far you can go! \nWhen you are ready push the Enter key.");
+                do { }
+                while (Console.ReadKey(true).Key != ConsoleKey.Enter);
+                { }
+                Console.WriteLine("Here we go!");
+                Console.Clear();
+                Console.WriteLine("3...");
+                Thread.Sleep(500);
+                Console.WriteLine("2...");
+                Thread.Sleep(500);
+                Console.WriteLine("1...");
+                Thread.Sleep(500);
+                Console.WriteLine("GO!");
+                Thread.Sleep(500);
+                Console.Clear();
+                int lives = 3;
+                int n = 0;
                 while (lives > 0)
                 {
                     if (n == 25 || n == 50 || n == 75)
                     {
-                        Console.WriteLine("Good job, but watch out those word will disappear faster now!");
+                        Console.WriteLine("{0} so far. Good job, but watch out those words will disappear faster now!", n);
                         Thread.Sleep(3000);
                     }
                     Console.Clear();
@@ -71,7 +72,7 @@ namespace Joshgame
                         {
                             lives = (lives - 1);
 
-                            if (lives == 0 || lives == 2)
+                            if (lives == 2)
                             {
                                 Console.WriteLine("{0} lives left!", lives);
                                 Thread.Sleep(1000);
@@ -90,7 +91,7 @@ namespace Joshgame
                         else
                         {
                             lives = (lives - 1);
-                            if (lives == 0 || lives == 2)
+                            if (lives == 2)
                             {
                                 Console.WriteLine("{0} lives left!", lives);
                                 Thread.Sleep(1000);
@@ -108,7 +109,7 @@ namespace Joshgame
                         else
                         {
                             lives = (lives - 1);
-                            if (lives == 0 || lives == 2)
+                            if (lives == 2)
                             {
                                 Console.WriteLine("{0} lives left!", lives);
                                 Thread.Sleep(1000);
@@ -119,10 +120,42 @@ namespace Joshgame
                                 Thread.Sleep(1000);
                             }
                         }
-                }
+                    if (lives == 0)
+                    {
+                        break;
+                    }
+                    n = (n + 1);
+                    if (n == 100)
+                    {
+                        break;
+                    }
 
+                }
+                if (n <= 25)
+                {
+                    Console.WriteLine("Aww too bad you only scored {0}, better luck next time. \nIf you'd like to play again push Enter. \nIf you'd like to close the game push any other key.", n);
+                }
+                else if (n > 25 && n <= 50)
+                {
+                    Console.WriteLine("Not bad you scored {0}, but you could do better. \nIf you'd like to play again push Enter. \nIf you'd like to close the game push any other key.", n);
+                }
+                else if (n > 50 && n <= 75)
+                {
+                    Console.WriteLine("Way to go {0}, Thats over half way to the top, why not try again? \nIf you'd like to play again push Enter. \nIf you'd like to close the game push any other key.", n);
+                }
+                else if (n > 75 && n < 100)
+                {
+                    Console.WriteLine("Wow {0}, almost the top score. One more go to get to the top? \nIf you'd like to play again push Enter. \nIf you'd like to close the game push any other key.", n);
+                }
+                else if (n == 100)
+                {
+                    Console.WriteLine("{0}!!! CONGRATULATIONS! You've beat the game, but could you do it again? \nIf you'd like to play again push Enter. \nIf you'd like to close the game push any other key.", n);
+                }
+                if (Console.ReadKey(true).Key != ConsoleKey.Enter)
+                {
+                    replay = 0;
+                }
             }
         }
     }
 }
-
